@@ -91,9 +91,8 @@ class WeekWrapper extends React.Component {
   }
 
   handleDragOverFromOutside = (point, node) => {
-    const item = this.context.draggable.dragFromOutsideItem ? this.context.draggable.dragFromOutsideItem() : null
-    if (!item) return
-    this.handleMove(point, node, item)
+    if (!this.context.draggable.dragFromOutsideItem) return
+    this.handleMove(point, node, this.context.draggable.dragFromOutsideItem())
   }
 
   handleResize(point, bounds) {
